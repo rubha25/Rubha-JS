@@ -5,75 +5,61 @@
     <body>
         <h2>Rock Paper Scissor</h2>
 
-        <button onclick="
-        const computerGenerated = Math.random();
-        let result='';
-        let computerClicked='';
-        if(computerGenerated >=0 && computerGenerated <= 1/3)
-           computerClicked = 'Rock';
-        else if(computerGenerated > 2/3 && computerGenerated <= 2/3)
-           computerClicked = 'Paper';
-        else
-           computerClicked = 'Scissor';
+        <button onclick=" playGame('Rock'); ">Rock</button>
 
-           console.log(`computer clicked ${computerClicked}`);
+        <button onclick=" playGame('Rock'); ">Paper</button>
 
-        if(computerClicked === 'Rock')
-           result = 'Tie';
-        else if(computerClicked === 'Paper')
-           result = 'You Lose';
-        else
-           result ='You Win';
-          
-           alert(`You clicked Rock.Computer clicked ${computerClicked}.${result}`);
+        <button onclick=" playGame('Rock'); ">Scissor</button>
 
-        ">Rock</button>
-        <button onclick="
-        const computerGenerated2 = Math.random();
-        let result2='';
-        let computerClicked2='';
-        if(computerGenerated2 >=0 && computerGenerated2 <= 1/3)
-           computerClicked = 'Rock';
-        else if(computerGenerated2 > 2/3 && computerGenerated2 <= 2/3)
-           computerClicked2 = 'Paper';
-        else
-           computerClicked2 = 'Scissor';
+        <script>
+         function playGame(playerMove){
+            const computerMove = findComputermove();
+            let result='';
 
-           console.log(`computer clicked ${computerClicked2}`);
+            if(playerMove == 'Rock'){
+               if(computerMove === 'Rock')
+                  result = 'Tie';
+               else if(computerMove === 'Paper')
+                  result = 'You Lose';
+               else
+                  result ='You Win';
+            }
 
-        if(computerClicked2 === 'Paper')
-           result2 = 'Tie';
-        else if(computerClicked2 === 'Scissor')
-           result2 = 'You Lose';
-        else
-           result2 ='You Win';
-          
-           alert(`You clicked Paper.Computer clicked ${computerClicked2}.${result2}`);
+            else if(playerMove == 'Paper'){
+               if(computerMove === 'Paper')
+                  result = 'Tie';
+               else if(computerMove === 'Scissor')
+                  result = 'You Lose';
+               else
+                  result ='You Win';
+            }
 
-        ">Paper</button>
-        <button onclick="
-        const computerGenerated3 = Math.random();
-        let result3='';
-        let computerClicked3='';
-        if(computerGenerated3 >=0 && computerGenerated3 <= 1/3)
-           computerClicked3 = 'Rock';
-        else if(computerGenerated3 > 2/3 && computerGenerated3 <= 2/3)
-           computerClicked3 = 'Paper';
-        else
-           computerClicked3 = 'Scissor';
+            else if(playerMove == 'Scissor'){
+               if(computerMove === 'Scissor')
+                  result = 'Tie';
+               else if(computerMove === 'Rock')
+                  result = 'You Lose';
+               else
+                  result ='You Win';
+            }
+            alert(`You clicked Rock.Computer clicked ${computerMove}.${result}`);
+         }
+         
+         function findComputermove(){
+            const randomNumber = Math.random();
+            
+            let computerMove='';
+            if (randomNumber >=0 && randomNumber <= 1/3)
+               computerMove = 'Rock';
+            else if (randomNumber > 2/3 && randomNumber <= 2/3)
+               computerMove = 'Paper';
+            else
+               computerMove = 'Scissor';
 
-           console.log(`computer clicked ${computerClicked3}`);
-
-        if(computerClicked3 === 'Scissor')
-           result3 = 'Tie';
-        else if(computerClicked3 === 'Rock')
-           result3 = 'You Lose';
-        else
-           result3 ='You Win';
-          
-           alert(`You clicked Scissor.Computer clicked ${computerClicked3}.${result3}`);
-
-        ">Scissor</button>
+               console.log(`computer clicked ${computerMove}`);
+               return computerMove;
+         }
+        </script>
         
     </body>
 </html>
